@@ -7,7 +7,7 @@ const express = require('express'),
 
       app = express();
 
-      mongoose.connect(mongodb+srv://Adebayo:welldone@cluster0.kjsnn.mongodb.net/TCCMALL, {useNewUrlParser:true})
+      mongoose.connect("mongodb+srv://Adebayo:welldone@cluster0.kjsnn.mongodb.net/TCCMALL", {useNewUrlParser:true})
 
       app.set('view engine', 'ejs');
       app.use(express.urlencoded({extended:true}));
