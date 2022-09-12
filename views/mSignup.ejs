@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TCC Mall</title>
+  </head>
+  <body>
+
+    <h3>TCC Mall</h3>
+    <p>Merchant Signup Page</p>
+    <p>Please fill in your details below</p>
+
+    <% if(typeof(error) != 'undefined') { %>
+      <% error.forEach(function(err) { %>
+        <h6 style="color:red"><%= err.msg %></h6>
+      <% }) %>
+    <% } %>
+
+    <form class="" action="/signup" method="post" enctype="multipart/form-data">
+      <p>Firstname: <input type="text" name="fn" value="<%= typeof fn != 'undefined'? fn : ''  %>"></p>
+      <p>Lastname: <input type="text" name="ln" value="<%= typeof ln != 'undefined' ? ln : '' %>"></p>
+      <p>Phone Number: <input type="text" name="phone" value="<%= typeof phone != 'undefined' ? phone : '' %>"></p>
+      <p>CAC Status: Registered <input type="radio" name="status" value="Yes"
+                     <% if(typeof status != 'undefined' && status === 'Yes'){ %> checked="checked" <%}%>>
+                     Not Registered <input type="radio" name="status" value="No"
+                     <% if(typeof status != 'undefined' && status === 'No'){ %> checked="checked" <%}%>>
+      </p>
+      <p>Username: <input type="text" name="username" value="<%= typeof username != 'undefined' ? username : '' %>"></p>
+      <p>Password: <input type="text" name="pass1" value="<%= typeof pass1 != 'undefined' ? pass1 : '' %>"></p>
+      <p>Confirm Password: <input type="text" name="pass2" value="<%= typeof pass2 != 'undefined' ? pass2 : '' %>"></p>
+      <p>Upload a Profile Picture: <input type="file" name="image"></p>
+
+      <input type="submit" name="" value="Click to Register">
+    </form>
+
+    <hr>
+    <a href="/login">Merchant Login</a>
+    <a href="/signup">Merchant Signup</a>
+
+  </body>
+</html>

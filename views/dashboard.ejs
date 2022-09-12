@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TCC Mall</title>
+  </head>
+  <body>
+
+    <h3>TCC Mall</h3>
+    <p>providing safe and convinient digital shopping experience</p>
+    <hr>
+    <h3>Merchant Dashboard</h3>
+
+    <a href="/dashboard">Dashboard</a>
+    <a href="/addPro">Upload Products</a>
+    <a href="/viewPro">View Products</a>
+    <a href="/logout">Click to Logout</a>
+    <br>
+
+    <img width="100" src="data:image/<%= r.image.contentType %>;base64,<%= r.image.data.toString('base64') %>" alt="">
+    <p>Merchant ID: <span style="color:blue"><%= merchant_id %></span></p>
+    <p>Username: <span style="color:blue"><%= username %></span></p>
+
+  </body>
+</html>

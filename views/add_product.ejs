@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h3>TCC Mall</h3>
+    <p>providing safe and convinient digital shopping experience</p>
+    <hr>
+    <h3>Merchant Dashboard</h3>
+    <p>Merchant ID: <span style="color:blue"><%= merchant_id %></span></p>
+    <p>Username: <span style="color:blue"><%= username %></span></p>
+
+    <a href="/dashboard">Dashboard</a>
+    <a href="/addPro">Upload Products</a>
+    <a href="/viewPro">View Products</a>
+    <a href="/logout">Click to Logout</a>
+    <br>
+
+   <%  if(typeof(error_message) != 'undefined') { %>
+      <% error_message.forEach(function(err) { %>
+        <h6 style="color:red"><%=err.msg%></h6>
+      <% }) %>
+    <% } %>
+
+    <% if(message != '') { %>
+      <h6 style="color:green"><%=message%></h6>
+    <% } %>
+
+    <% if(error_msg != '') { %>
+      <h6 style="color:red"><%=error_msg%></h6>
+    <% } %>
+
+    <br>
+    <form class="" action="/addPro" method="post" enctype="multipart/form-data">
+      <p>Product Name: <input type="text" name="productName" value="<%= typeof productName != 'undefined'? productName : ''  %>"></p>
+      <p>Product Description: <br><textarea name="description" rows="7" cols="25"><%= typeof description != 'undefined'? description : ''  %></textarea>
+      </p>
+      <p>Product Price: <input type="number" name="price" value="<%= typeof price != 'undefined'? price : ''  %>"></p>
+
+      <% let products = ["Computers","Phones", "Tablets","Printers","Accessories"] %>
+      <p>Product Category:
+        <select class="" name="category">
+        <option value="">Select a product category</option>
+      <% products.forEach((prods) => { %>
+        <option value="<%= prods %>" <% if(typeof category !='undefined' && category === prods){ %> selected="selected" <%}%>><%= prods %></option>
+      <% }) %>
+
+      </select></p>
+
+        <p>Upload Product Image: <input type="file" name="image"></p>
+
+      <input type="submit" name="" value="Click to Add">
+
+    </form>
+
+  </body>
+</html>

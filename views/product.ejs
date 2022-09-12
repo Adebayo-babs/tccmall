@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TCC Mall</title>
+  </head>
+  <body>
+
+      <h3><a href="/">TCC Mall</a></h3>
+    <p>providing safe and convinient digital shopping experience</p>
+
+    <form class="" action="" method="post">
+      <input type="text" placeholder="Search for Products and Brands" size="50" name="" value="">
+      <input type="submit" name="" value="Search">
+    </form>
+
+    <hr>
+    <ul>
+      <li> <a href="product/Computers">Computers</a> </li>
+      <li> <a href="products/Phones">Phones</a> </li>
+      <li> <a href="products/Tablets">Tablets</a> </li>
+      <li> <a href="products/Printers">Printers</a> </li>
+      <li> <a href="products/Accessories">Accessories</a> </li>
+    </ul>
+
+    <hr>
+
+    <% result.forEach((r) => { %>
+        <img width="100" src="data:image/<%=r.image.contentType%>;base64,<%=r.image.data.toString('base64')%>" alt="">
+        <p>Price: <strong style="color:red"><%= r.price %></strong></p>
+        <button type="button" name="button"><a href="/details/<%=r._id%>">View Details</a></button>
+        <hr>
+    <%  }) %>
+
+    <a href="/login">Merchant Login</a>
+    <a href="/signup">Merchant Signup</a>
+
+  </body>
+</html>

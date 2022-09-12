@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TCC Mall</title>
+  </head>
+  <body>
+
+    <h3>TCC Mall</h3>
+
+      <% if(message != '') { %>
+        <h6 style="color:green"><%= message %></h6>
+      <% } %>
+
+      <% if(error_msg != '') { %>
+        <h6 style="color:red"><%= error_msg %></h6>
+      <% } %>
+
+    <p>Merchant Login Page</p>
+    <p>Please enter your Usename and Password</p>
+
+    <form class="" action="/login" method="post">
+      <p>Username: <input type="text" name="username" value=""></p>
+      <p>Password: <input type="password" name="password" value=""></p>
+      <input type="submit" name="" value="Click to Login">
+    </form>
+
+    <hr>
+    <a href="/login">Merchant Login</a>
+    <a href="/signup">Merchant Signup</a>
+
+  </body>
+</html>

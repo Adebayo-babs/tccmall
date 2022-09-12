@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TCC Mall</title>
+  </head>
+  <body>
+
+    <h3><a href="/">TCC Mall</a></h3>
+    <p>providing safe and convinient digital shopping experience</p>
+
+    <form class="" action="" method="post">
+      <input type="text" placeholder="Search for Products and Brands" size="50" name="" value="">
+      <input type="submit" name="" value="Search">
+    </form>
+
+    <hr>
+    <ul>
+      <li> <a href="product/Computers">Computers</a> </li>
+      <li> <a href="products/Phones">Phones</a> </li>
+      <li> <a href="products/Tablets">Tablets</a> </li>
+      <li> <a href="products/Printers">Printers</a> </li>
+      <li> <a href="products/Accessories">Accessories</a> </li>
+    </ul>
+
+    <h3>Product Details Page</h3>
+
+        <img width="100" src="data:image/<%=r.image.contentType%>;base64,<%=r.image.data.toString('base64')%>" alt="">
+        <p><%=r.productName%></p>
+        <p><%=r.description%></p>
+        <p>Price: <strong style="color:red"><%= r.price %></strong></p>
+        <p>Seller: <span style="color:green"><%=r.username%></span></p>
+        <p>Add to Cart: <input type="text" name="" size="3" value="0" id="cart"></p>
+        <button id="plus" onclick="add()">+</button>
+        <button id="minus" onclick="subtract()">-</button>
+        <hr>
+
+    <a href="/login">Merchant Login</a>
+    <a href="/signup">Merchant Signup</a>
+
+    <script type="text/javascript">
+      let reader = 0;
+
+      function add() {
+        reader += 1;
+        document.getElementById("cart").value = reader;
+      }
+
+      function subtract() {
+        reader -= 1;
+        if (reader >= 0) {
+      document.getElementById("cart").value = reader;
+        } else {
+          reader = 0
+        }
+      }
+    </script>
+
+  </body>
+</html>
